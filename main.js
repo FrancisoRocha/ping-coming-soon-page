@@ -26,7 +26,7 @@ inputForm.addEventListener('input', (e) => {
 });
 
 // Event listener para el boton
-buttonNotify.addEventListener('submit', (e) => {
+buttonNotify.addEventListener('click', (e) => {
     e.preventDefault()
 
     //Obtner el valor del input
@@ -37,7 +37,11 @@ buttonNotify.addEventListener('submit', (e) => {
     if(valueInput.trim() === '' || !emailRegex.test(valueInput)){
         console.log('Email no valido')
     } else {
-        console.log('Email valido')
+        inputForm.value = '';
+        buttonNotify.disabled = true;
+        errorMessage.classList.add('hidden')
+        inputForm.classList.remove('container__form--input-invalid')
+        inputForm.classList.remove('container__form--input-success')
     }
 
 })
